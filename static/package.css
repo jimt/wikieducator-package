@@ -1,0 +1,38 @@
+body {
+  font: 13px "Lucida Grande", "Lucida Sans Unicode", arial, sans-serif;
+  line-height: 1.53846; /* 20px */
+  background: #fff;
+}
+code {
+  font: 13px Monaco, Courier, monospace;
+  line-height: 1.6;
+}
+
+p.error {
+  color: red;
+}
+p.version {
+  color: gray;
+  font-size: smaller;
+}
+table {
+  padding: 10px;
+  border: solid #000 1px;
+}
+tr {
+  padding-bottom: 15px;
+}
+td.stepno {
+  text-align: center;
+  font-weight: bold;
+  vertical-align: top;
+}
+td {
+  text-align: left;
+  vertical-align: top;
+}
+
+li {
+  padding-bottom: 4px;
+}
+

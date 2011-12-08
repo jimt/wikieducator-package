@@ -1,0 +1,11 @@
+# don't include the config file
+wikieducator_package_config.py
+# editor debris
+*~
+.#*
+._*
+.*.sw?
+# OS debris
+.DS_Store
+# duelling version control systems
+.svn

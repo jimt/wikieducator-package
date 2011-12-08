@@ -1,0 +1,19 @@
+= WikiEducator Package =
+
+A proof of concept Python 2.x CGI tool that can package a
+[http://www.mediawiki.org/wiki/Extension:Collection collection]
+of pages from [http://WikiEducator.org/ WikiEducator] in IMS
+Content Package or IMS Common Cartridge formats for use in a
+learning management system (LMS).
+
+It was inspired by [http://eXeLearning.org/ eXe], the eLearning
+XHTML editor. WikiEducator uses many of the same pedagogical
+templates and extends the eXe concept by providing
+
+* collaborative editing
+* public repository of resources
+
+It requires the
+[http://www.crummy.com/software/BeautifulSoup/ Beautiful Soup] HTML
+parser and manipulation tool.
+

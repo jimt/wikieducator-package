@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata
+  xmlns="http://www.exelearning.org/metadata/dc/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.exelearning.org/metadata/dc/ http://www.exelearning.org/metadata/dc/schema.xsd"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:dcterms="http://purl.org/cd/terms/">
+
+<dc:title>WikiEducator Package</dc:title>
+<dc:creator></dc:creator>
+<dc:subject></dc:subject>
+<dc:description>WikiEducator Package</dc:description>
+<dc:publisher></dc:publisher>
+<dc:contributor></dc:contributor>
+<dc:date>2008-01-18</dc:date>
+<dc:type></dc:type>
+<dc:format></dc:format>
+<dc:identifier></dc:identifier>
+<dc:source></dc:source>
+<dc:language></dc:language>
+<dc:relation></dc:relation>
+<dc:coverage></dc:coverage>
+<dc:rights>Creative Commons Attribution Share-Alike License</dc:rights>
+
+</metadata>
