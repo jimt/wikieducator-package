@@ -34,7 +34,7 @@ from urllib import unquote
 import urllib2
 import zipfile
 from tempfile import mkdtemp
-from beautifulsoup import BeautifulSoup, Tag
+from BeautifulSoup import BeautifulSoup, Tag
 
 IMSCP, SCORM12, IMSCC = range(3)
 from wikieducator_package_config import *
@@ -97,7 +97,7 @@ td {
   <li>Upload the resulting package (.zip file) to your LMS.</li>
 </ol>
 </form>
-<p class="version">Script version: 2011-12-08 20:18:15</p>
+<p class="version">Script version: 2012-10-28 15:45:15</p>
 </body>
 </html>
 '''
