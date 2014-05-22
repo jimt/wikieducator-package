@@ -97,7 +97,7 @@ td {
   <li>Upload the resulting package (.zip or .imscc file) to your LMS.</li>
 </ol>
 </form>
-<p class="version">Script version: 2014-05-22 01:47:15</p>
+<p class="version">Script version: 2014-05-22 01:56:15</p>
 </body>
 </html>
 '''
@@ -182,8 +182,7 @@ class Manifest(object):
 </metadata>
 <organizations>
 <organization identifier="%s" structure="rooted-hierarchy">
-<title>%s</title>
-''' % (package_id, organization_id, self.title)
+''' % (package_id, organization_id)
         else:
             pass
 
