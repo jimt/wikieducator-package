@@ -97,7 +97,7 @@ td {
   <li>Upload the resulting package (.zip or .imscc file) to your LMS.</li>
 </ol>
 </form>
-<p class="version">Script version: 2014-05-22 01:56:15</p>
+<p class="version">Script version: 2014-05-22 02:49:15</p>
 </body>
 </html>
 '''
@@ -181,7 +181,8 @@ class Manifest(object):
   </lom>
 </metadata>
 <organizations>
-<organization identifier="%s" structure="rooted-hierarchy">
+  <organization identifier="%s" structure="rooted-hierarchy">
+    <item identifier="item42">
 ''' % (package_id, organization_id)
         else:
             pass
@@ -194,7 +195,8 @@ class Manifest(object):
 
             f.write('    <title>%s</title>\n' % node.title)
             f.write('  </item>\n')
-        f.write('</organization>\n')
+        f.write('    </item>\n')
+        f.write('  </organization>\n')
         f.write('</organizations>\n')
         f.write('<resources>\n')
         for node in nodes:
