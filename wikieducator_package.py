@@ -97,7 +97,7 @@ td {
   <li>Upload the resulting package (.zip or .imscc file) to your LMS.</li>
 </ol>
 </form>
-<p class="version">Script version: 2014-05-22 02:49:15</p>
+<p class="version">Script version: 2014-05-22 02:55:15</p>
 </body>
 </html>
 '''
@@ -325,6 +325,8 @@ for page in soup('dd'):
         body.find(id = 'toc').extract()
     if body.find(id = 'printfooter'):
         body.find(id = 'printfooter').extract()
+    if body.find('div', {'class': 'weMenubar'}):
+        body.find('div', {'class': 'weMenubar'}).extract()
     if body.find('div', {'class': 'navigation'}):
         body.find('div', {'class': 'navigation'}).extract()
     if body.find('table', {'class': re.compile(r'.*navigation.*')}):
