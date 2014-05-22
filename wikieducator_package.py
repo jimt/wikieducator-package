@@ -97,7 +97,7 @@ td {
   <li>Upload the resulting package (.zip or .imscc file) to your LMS.</li>
 </ol>
 </form>
-<p class="version">Script version: 2014-05-22 01:41:15</p>
+<p class="version">Script version: 2014-05-22 01:47:15</p>
 </body>
 </html>
 '''
@@ -199,9 +199,12 @@ class Manifest(object):
         f.write('</organizations>\n')
         f.write('<resources>\n')
         for node in nodes:
+            written = {}
             f.write('  <resource identifier="%s" type="webcontent" href="%s">\n' % (node.id, node.filename))
             for file in node.resources:
-                f.write('    <file href="%s"/>\n' % file)
+                if not written.has_key(file):
+                    f.write('    <file href="%s"/>\n' % file)
+                    written[file] = True
             f.write('  </resource>\n')
         f.write('</resources>\n')
         f.write('</manifest>\n')
