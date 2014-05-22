@@ -97,7 +97,7 @@ td {
   <li>Upload the resulting package (.zip or .imscc file) to your LMS.</li>
 </ol>
 </form>
-<p class="version">Script version: 2014-05-22 02:55:15</p>
+<p class="version">Script version: 2014-05-22 04:21:15</p>
 </body>
 </html>
 '''
@@ -159,26 +159,32 @@ class Manifest(object):
         elif self.format == IMSCC:
             manifest_prologue = u'''<?xml version="1.0" encoding="UTF-8"?>
 <manifest identifier="%s"
- xmlns="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscc/imscp_v1p1 imscp_v1p1.xsd http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1 http://www.imsglobal.org/profile/cc/ccv1p1/ccv1p1_imscp_v1p2_v1p0.xsd">
+  xmlns="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1" 
+  xmlns:lom="http://ltsc.ieee.org/xsd/imsccv1p1/LOM/resource" 
+  xmlns:lomimscc="http://ltsc.ieee.org/xsd/imsccv1p1/LOM/manifest" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="
+  http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1 http://www.imsglobal.org/profile/cc/ccv1p1/ccv1p1_imscp_v1p2_v1p0.xsd
+  http://ltsc.ieee.org/xsd/imsccv1p1/LOM/resource http://www.imsglobal.org/profile/cc/ccv1p1/LOM/ccv1p1_lomresource_v1p0.xsd
+  http://ltsc.ieee.org/xsd/imsccv1p1/LOM/manifest http://www.imsglobal.org/profile/cc/ccv1p1/LOM/ccv1p1_lommanifest_v1p0.xsd">
 <metadata>
   <schema>IMS Common Cartridge</schema>
   <schemaversion>1.1.0</schemaversion>
-  <lom xmlns="http://ltsc.ieee.org/xsd/imsccv1p1/LOM/manifest">
-    <general>
-      <title><string>WikiEducator Content</string></title>
-      <description><string>A snapshot of content developed on WikiEducator.org.</string></description>
-    </general>
-    <technical>
-      <format>text/html</format>
-    </technical>
-    <rights>
-      <copyrightAndOtherRestrictions>
-        <value>yes</value>
-      </copyrightAndOtherRestrictions>
-      <description><string>Creative Commons Attribution Share-Alike</string></description>
-    </rights>
-  </lom>
+  <lomimscc:lom>
+    <lomimscc:general>
+      <lomimscc:title><lomimscc:string language="en-US">WikiEducator Content</lomimscc:string></lomimscc:title>
+      <lomimscc:description><lomimscc:string language="en-US">A snapshot of content developed on WikiEducator.org.</lomimscc:string></lomimscc:description>
+    </lomimscc:general>
+    <lomimscc:technical>
+      <lomimscc:format>text/html</lomimscc:format>
+    </lomimscc:technical>
+    <lomimscc:rights>
+      <lomimscc:copyrightAndOtherRestrictions>
+        <lomimscc:value>yes</lomimscc:value>
+      </lomimscc:copyrightAndOtherRestrictions>
+      <lomimscc:description><lomimscc:string language="en-US">Creative Commons Attribution Share-Alike</lomimscc:string></lomimscc:description>
+    </lomimscc:rights>
+  </lomimscc:lom>
 </metadata>
 <organizations>
   <organization identifier="%s" structure="rooted-hierarchy">
