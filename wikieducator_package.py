@@ -2,8 +2,8 @@
 #
 # WikiEducator Collection package hack
 #
-# Copyright (c) 2008-2011 James Tittsler
-# 
+# Copyright (c) 2008-2014 James Tittsler
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
@@ -126,13 +126,13 @@ class Manifest(object):
             manifest_prologue = u'''<?xml version="1.0" encoding="UTF-8"?>
 <manifest identifier="%s"
         xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
-        xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" 
-        xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" 
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-        xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd http://www.imsglobal.org/xsd/imsmd_v1p2 imsmd_v1p2p2.xsd"> 
-<metadata> 
- <schema>IMS Content</schema> 
- <schemaversion>1.1.3</schemaversion> 
+        xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+        xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd http://www.imsglobal.org/xsd/imsmd_v1p2 imsmd_v1p2p2.xsd">
+<metadata>
+ <schema>IMS Content</schema>
+ <schemaversion>1.1.3</schemaversion>
  <adlcp:location>dublincore.xml</adlcp:location>
 </metadata>
 <organizations default="%s">
@@ -143,13 +143,13 @@ class Manifest(object):
             manifest_prologue = u'''<?xml version="1.0" encoding="UTF-8"?>
 <manifest identifier="%s"
         xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
-        xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" 
-        xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" 
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-        xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd http://www.imsglobal.org/xsd/imsmd_v1p2 imsmd_v1p2p2.xsd"> 
-<metadata> 
- <schema>IMS Content</schema> 
- <schemaversion>1.1.3</schemaversion> 
+        xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+        xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd http://www.imsglobal.org/xsd/imsmd_v1p2 imsmd_v1p2p2.xsd">
+<metadata>
+ <schema>IMS Content</schema>
+ <schemaversion>1.1.3</schemaversion>
  <adlcp:location>dublincore.xml</adlcp:location>
 </metadata>
 <organizations default="%s">
@@ -402,7 +402,11 @@ for file in files:
     shutil.copy(file, temp_dir)
 
 zip_dir = mkdtemp('.wikieducator', '', zips_directory)
-zip_name = re.sub(r'[ /:@<>"]', u'_', collection_title).encode('utf-8') + '.zip'
+zip_name = re.sub(r'[ /:@<>"]', u'_', collection_title).encode('utf-8')
+if format == IMSCC:
+    zip_name = zip_name + '.imscc'
+else:
+    zip_name = zip_name + '.zip'
 zip_path = os.path.join(zip_dir, zip_name)
 z = zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED)
 for file in glob.glob(os.path.join(temp_dir, '*')):
