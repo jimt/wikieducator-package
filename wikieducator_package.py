@@ -93,11 +93,11 @@ td {
     or http://wikieducator.org/WikiEducator:Collections/Cost_and_Finance_Unit_3</li>
   <li>Select the output format:<br />
   <input type="submit" value="Export IMS Content Package" name="imscp">most common LMS format for things like Moodle, ATutor, etc.<br />
-  <input type="submit" value="Export IMS Common Cartridge" name="imscc">next generation packaging standard</li>
-  <li>Upload the resulting package (.zip file) to your LMS.</li>
+  <input type="submit" value="Export IMS Common Cartridge v1.1" name="imscc">next generation packaging standard</li>
+  <li>Upload the resulting package (.zip or .imscc file) to your LMS.</li>
 </ol>
 </form>
-<p class="version">Script version: 2012-10-28 15:45:15</p>
+<p class="version">Script version: 2014-05-22 01:41:15</p>
 </body>
 </html>
 '''
@@ -159,13 +159,12 @@ class Manifest(object):
         elif self.format == IMSCC:
             manifest_prologue = u'''<?xml version="1.0" encoding="UTF-8"?>
 <manifest identifier="%s"
- xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.imsglobal.org/xsd/imscc/imscp_v1p1 imscp_v1p1.xsd">
+ xmlns="http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscc/imscp_v1p1 imscp_v1p1.xsd http://www.imsglobal.org/xsd/imsccv1p1/imscp_v1p1 http://www.imsglobal.org/profile/cc/ccv1p1/ccv1p1_imscp_v1p2_v1p0.xsd">
 <metadata>
   <schema>IMS Common Cartridge</schema>
-  <schemaversion>1.0.0</schemaversion>
-  <lom xmlns="http://ltsc.ieee.org/xsd/imscc/LOM">
+  <schemaversion>1.1.0</schemaversion>
+  <lom xmlns="http://ltsc.ieee.org/xsd/imsccv1p1/LOM/manifest">
     <general>
       <title><string>WikiEducator Content</string></title>
       <description><string>A snapshot of content developed on WikiEducator.org.</string></description>
@@ -181,18 +180,18 @@ class Manifest(object):
     </rights>
   </lom>
 </metadata>
-<organizations default="%s">
-<organization identifier="%s" structure="hierarchical">
+<organizations>
+<organization identifier="%s" structure="rooted-hierarchy">
 <title>%s</title>
-''' % (package_id, organization_id, organization_id, self.title)
+''' % (package_id, organization_id, self.title)
         else:
             pass
 
         f.write(manifest_prologue.encode('utf-8'))
         for node in nodes:
             item_id = 'ITEM-WE' + str(uuid4())
-            f.write('  <item identifier="%s" isvisible="true" identifierref="%s">\n'
-                   % (item_id, node.id))
+            f.write('  <item identifier="%s">\n'
+                   % (item_id))
 
             f.write('    <title>%s</title>\n' % node.title)
             f.write('  </item>\n')
